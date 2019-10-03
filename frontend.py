@@ -30,7 +30,7 @@ def add_command():
   list1.insert(END,(title_text.get(), author_text.get(), year_text.get(), isbn_text.get()))
 
 def update_command():
-  pass
+  backend.update(selected_tuple[0], title_text.get(), author_text.get(), year_text.get(), isbn_text.get())
 
 def delete_command():
   backend.delete(selected_tuple[0])
