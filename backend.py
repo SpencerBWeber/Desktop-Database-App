@@ -46,8 +46,3 @@ def update(id, title, author, year, isbn):
 
 
 connect()
-# insert("The Sun", "John Smith", 1918, 913123132)
-# delete(4)
-update(6, "The Moon", "John Smooth", 1917, 999999)
-print(view())
-print(search(author='John Tablet'))
