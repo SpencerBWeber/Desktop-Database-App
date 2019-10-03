@@ -1,6 +1,12 @@
 from tkinter import *
 import backend
 
+def get_selected_row(event):
+  global selected_tuple
+  index = list1.curselection()[0]
+  selected_tuple = list1.get(index)
+  
+
 def view_command():
   list1.delete(0, END)
   for row in backend.view():
@@ -20,7 +26,7 @@ def update_command():
   pass
 
 def delete_command():
-  pass
+  backend.delete(selected_tuple[0])
 
 def close_command():
   pass
@@ -63,6 +69,8 @@ sb1.grid(row=2, column=2, rowspan=6)
 
 list1.configure(yscrollcommand=sb1.set)
 sb1.configure(command=list1.yview)
+
+list1.bind('<<ListboxSelect>>', get_selected_row)
 
 view_button = Button(window, text="View all", width=12, command=view_command)
 view_button.grid(row=2, column=3)
